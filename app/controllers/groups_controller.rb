@@ -48,7 +48,7 @@ class GroupsController < OpenReadController
   end
 
   def set_group
-    @group = current_user.groups.find(params[:id])
+    @group = current_user.organizations.find(params[:id])
   end
 
   def group_params
