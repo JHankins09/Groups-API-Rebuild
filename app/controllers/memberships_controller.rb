@@ -47,6 +47,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def membership_params
-    params.require(:membership).permit(:user_id, :group_id)
+    params.require(:membership).permit(:user_id, :group_id, :contact_email)
   end
 end

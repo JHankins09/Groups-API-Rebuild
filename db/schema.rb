@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_08_03_205540) do
   create_table "memberships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "group_id"
+    t.string "contact_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_memberships_on_group_id"

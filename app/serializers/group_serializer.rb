@@ -3,7 +3,7 @@
 class GroupSerializer < ActiveModel::Serializer
   attributes :id, :group_name,
              :group_type, :group_description,
-             :group_admin, :users,
+             :group_admin, :memberships,
              :editable
 
   belongs_to :administrator
