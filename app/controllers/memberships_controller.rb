@@ -4,7 +4,7 @@ class MembershipsController < ProtectedController
 
   # GET /memberships
   def index
-    @memberships = Membership.all
+    @memberships = current_user.memberships.all
 
     render json: @memberships
   end
