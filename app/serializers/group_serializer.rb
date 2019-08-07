@@ -6,7 +6,6 @@ class GroupSerializer < ActiveModel::Serializer
              :editable
 
   belongs_to :administrator
-  # belongs_to :user
 
   def editable
     scope == object.administrator

@@ -11,4 +11,6 @@ class Group < ApplicationRecord
              class_name: 'User',
              foreign_key: 'user_id',
              inverse_of: 'organizations'
+
+  # belongs_to :user
 end

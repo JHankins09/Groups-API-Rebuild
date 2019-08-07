@@ -20,12 +20,12 @@ class GroupsController < OpenReadController
   # POST /groups
   # POST /groups.json
   def create
-    @group = current_user.groups.build(group_params)
+    @organizations = current_user.organizations.build(group_params)
 
-    if @group.save
-      render json: @group, status: :created
+    if @organizations.save
+      render json: @organizations, status: :created
     else
-      render json: @group.errors, status: :unprocessable_entity
+      render json: @organizations.errors, status: :unprocessable_entity
     end
   end
 

@@ -3,6 +3,6 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :email
   has_many :organizations
-  has_many :groups
+  has_many :memberships
 
 end
