@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :groups
+  attributes :id, :email
+  has_many :organizations
 end
+
+# has_many :groups

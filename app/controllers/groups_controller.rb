@@ -23,13 +23,14 @@ class GroupsController < OpenReadController
     @group = current_user.groups.build(group_params)
 
     if @group.save
-      render json: @group, status: :created, location: @group
+      render json: @group, status: :created
     else
       render json: @group.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /groups/1
+  # PATCH/PUT /groups/1.json
   def update
     if @group.update(group_params)
       render json: @group
@@ -39,21 +40,23 @@ class GroupsController < OpenReadController
   end
 
   # DELETE /groups/1
+  # DELETE /groups/1.json
   def destroy
     @group.destroy
+
+    head :no_content
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = current_user.groups.find(params[:id])
-    end
+  def set_group
+    @group = current_user.groups.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def group_params
-      params.require(:group).permit(:group_name, :group_type,
-                                    :group_description, :group_admin)
-    end
+  def group_params
+    params.require(:group).permit(:group_name,
+                                  :group_type,
+                                  :group_description,
+                                  :group_admin)
+  end
 
-    private :set_group, :group_params
+  private :set_group, :group_params
 end

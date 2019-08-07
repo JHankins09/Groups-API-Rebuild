@@ -3,7 +3,7 @@
 class CreateGroups < ActiveRecord::Migration[5.2]
   def change
     create_table :groups do |t|
-      t.string :group_name, null: false, index: { unique: true }
+      t.string :group_name, null: false, index: { unique: true}
       t.string :group_type, null: false
       t.string :group_description, null: false
       t.string :group_admin, null: false
