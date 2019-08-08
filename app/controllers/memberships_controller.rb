@@ -5,7 +5,7 @@ class MembershipsController < ProtectedController
   # GET /memberships
   def index
     @memberships = current_user.memberships.all
-
+    # @memberships = Membership.all
     render json: @memberships
   end
 
@@ -16,7 +16,7 @@ class MembershipsController < ProtectedController
 
   # POST /memberships
   def create
-    @membership = Membership.new(membership_params)
+    @membership = current_user.memberships.build(membership_params)
 
     if @membership.save
       render json: @membership, status: :created, location: @membership
@@ -42,7 +42,7 @@ class MembershipsController < ProtectedController
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_membership
-    @membership = Membership.find(params[:id])
+    @membership = current_user.memberships.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
