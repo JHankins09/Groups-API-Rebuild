@@ -1,6 +1,6 @@
 
 class MembershipsController < ProtectedController
-  before_action :set_membership, only: [:show, :update, :destroy]
+  before_action :set_membership, only: %i[show, update, destroy]
 
   # GET /memberships
   def index
